@@ -1,16 +1,22 @@
-# fluttermobx
+# flutter mobx
 
-A new Flutter application.
+A Flutter task app to learn how to use the MobX state manager
 
-## Getting Started
+## Adding MobX in a Flutter Project
 
-This project is a starting point for a Flutter application.
-
-A few resources to get you started if this is your first Flutter project:
-
-- [Lab: Write your first Flutter app](https://flutter.dev/docs/get-started/codelab)
-- [Cookbook: Useful Flutter samples](https://flutter.dev/docs/cookbook)
-
-For help getting started with Flutter, view our
-[online documentation](https://flutter.dev/docs), which offers tutorials,
-samples, guidance on mobile development, and a full API reference.
+ 1. Add the following dependecies in pubspec.yaml
+ 
+   - Mobx:
+      https://pub.dev/packages/mobx
+      
+   - Flutter Mobx
+      https://pub.dev/packages/flutter_mobx
+    
+   Example:
+   ```
+   dependencies:
+      flutter:
+          sdk: flutter
+      mobx: ^1.0.0
+      flutter_mobx: ^1.0.0
+   ```
