@@ -13,6 +13,7 @@ class ListScreen extends StatefulWidget {
 }
 
 class _ListScreenState extends State<ListScreen> {
+
   ListStore listStore = new ListStore();
   final todoController = new TextEditingController();
 
