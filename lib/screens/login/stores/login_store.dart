@@ -40,6 +40,8 @@ abstract class _LoginStore with Store {
     Future.delayed(Duration(seconds: 2), () {
       loading = false;
       loggedIn = true;
+      email = "";
+      password = "";
     });
   }
 
