@@ -1,10 +1,11 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_mobx/flutter_mobx.dart';
-import 'package:fluttermobx/screens/login/store/login_store.dart';
+import 'package:fluttermobx/screens/login/stores/login_store.dart';
 import 'package:fluttermobx/widgets/custom_icon_button.dart';
 import 'package:fluttermobx/widgets/custom_text_field.dart';
 import 'package:mobx/mobx.dart';
+import 'package:provider/provider.dart';
 
 import '../list/list_screen.dart';
 
@@ -14,12 +15,14 @@ class LoginScreen extends StatefulWidget {
 }
 
 class _LoginScreenState extends State<LoginScreen> {
-  LoginStore loginStore = LoginStore();
+  LoginStore loginStore;
   ReactionDisposer disposer;
 
   @override
   void didChangeDependencies() {
     super.didChangeDependencies();
+
+    loginStore = Provider.of<LoginStore>(context);
 
     // different of autorun approach, this verify just when change the value
     disposer = reaction((_) => loginStore.loggedIn, (loggedIn) {

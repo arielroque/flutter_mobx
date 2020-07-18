@@ -35,13 +35,13 @@ mixin _$ListStore on _ListStore, Store {
   final _$todoListAtom = Atom(name: '_ListStore.todoList');
 
   @override
-  ObservableList<dynamic> get todoList {
+  ObservableList<TodoStore> get todoList {
     _$todoListAtom.reportRead();
     return super.todoList;
   }
 
   @override
-  set todoList(ObservableList<dynamic> value) {
+  set todoList(ObservableList<TodoStore> value) {
     _$todoListAtom.reportWrite(value, super.todoList, () {
       super.todoList = value;
     });

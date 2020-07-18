@@ -54,4 +54,9 @@ abstract class _LoginStore with Store {
   @computed
   Function get loginPressed =>
       (isValidEmail && isValidPassword && !loading) ? login : null;
+
+  @action
+  void logout(){
+    loggedIn = false;
+  }
 }

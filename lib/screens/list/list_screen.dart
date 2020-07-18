@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_mobx/flutter_mobx.dart';
-import 'package:fluttermobx/screens/list/store/list_store.dart';
+import 'package:fluttermobx/screens/list/stores/list_store.dart';
 import 'package:fluttermobx/widgets/custom_icon_button.dart';
 import 'package:fluttermobx/widgets/custom_text_field.dart';
 import '../login/login_screen.dart';
@@ -12,6 +12,7 @@ class ListScreen extends StatefulWidget {
 
 class _ListScreenState extends State<ListScreen> {
   ListStore listStore = new ListStore();
+  final todoController = new TextEditingController();
 
   @override
   Widget build(BuildContext context) {
@@ -60,6 +61,7 @@ class _ListScreenState extends State<ListScreen> {
                           builder: (_) {
                             return CustomTextField(
                               hint: 'Tarefa',
+                              controller: todoController,
                               onChanged: (todo) {
                                 listStore.setNewTodoTitle(todo);
                               },
@@ -69,6 +71,7 @@ class _ListScreenState extends State<ListScreen> {
                                     listStore.isFormValid ? Icons.add : null,
                                 onTap: () {
                                   listStore.addTodoList();
+                                  todoController.clear();
                                 },
                               ),
                             );
@@ -83,11 +86,26 @@ class _ListScreenState extends State<ListScreen> {
                               return ListView.separated(
                                 itemCount: listStore.todoList.length,
                                 itemBuilder: (_, index) {
+                                  final todo = listStore.todoList[index];
+
                                   return ListTile(
-                                    title: Text(
-                                      listStore.todoList[index],
+                                    title: Observer(
+                                      builder: (_) {
+                                        return Text(
+                                          todo.title,
+                                          style: TextStyle(
+                                              decoration: todo.done
+                                                  ? TextDecoration.lineThrough
+                                                  : null,
+                                              color: todo.done
+                                                  ? Colors.grey
+                                                  : Colors.black),
+                                        );
+                                      },
                                     ),
-                                    onTap: () {},
+                                    onTap: () {
+                                      todo.toggleDone();
+                                    },
                                   );
                                 },
                                 separatorBuilder: (_, __) {
