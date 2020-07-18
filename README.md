@@ -4,6 +4,16 @@ A Flutter task app to learn how to use the MobX state manager
 
 ## Concepts 
  <img src="https://github.com/mobxjs/mobx.dart/raw/master/docs/src/images/mobx-triad.png">
+ 
+ ### Observables
+ 
+ ### Computed Observables
+ 
+ ### Actions
+ 
+ ### Reactions 
+ 
+ ### Observer
 
 ## Adding MobX in a Flutter Project
 
