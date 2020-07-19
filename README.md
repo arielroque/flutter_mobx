@@ -30,7 +30,7 @@ A Flutter task app to learn how to use the MobX state manager
  
  ### Actions
  
-  - actions is how we change the states of an observable variable. It is recommended to always use an action to perform a mutation on a variable.
+  - Actions is how we change the states of an observable variable. It is recommended to always use an action to perform a mutation on a variable.
   ```
   @observable
   int value = 0;
